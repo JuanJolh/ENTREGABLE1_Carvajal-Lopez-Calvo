@@ -88,3 +88,13 @@ def search_blog(request):
     blog = Blog.objects.filter(name__icontains=search)
     context = {'blog': blog}
     return render(request, 'search_blog.html', context=context)
+
+def list_products(request):
+    products = Products.objects.all() #Trae todos
+    context = {
+        'products':products
+    }
+    return render(request, 'products/products_list.html', context=context)
+
+def home(request):
+    return render(request, 'home.html', context={})
